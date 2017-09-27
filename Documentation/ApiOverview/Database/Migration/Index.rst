@@ -32,6 +32,7 @@ layer. In $GLOBALS['TYPO3_DB'], the final query statement is usually retrieved b
 
    // Migrate to doctrine and debug SQL:
    // 'SELECT * FROM index_fulltext WHERE phash=42'
+   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('index_fulltext');
    $queryBuilder->select('*')
    ->from('index_fulltext')
    ->where(
